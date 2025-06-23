@@ -211,6 +211,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 1.5rem;
+  width: 100%;
 }
 
 .carousel-cards {
@@ -238,15 +239,15 @@ body {
   border-radius: 9999px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  z-index: 5;
+  z-index: 10;
 }
 
 .carousel-btn.prev {
-  left: -1.5rem;
+  left: 0.25rem;
 }
 
 .carousel-btn.next {
-  right: -1.5rem;
+  right: 0.25rem;
 }
 
 .carousel-btn:hover:enabled {
@@ -335,11 +336,11 @@ body {
   }
 
   .carousel-btn.prev {
-    left: 0;
+    left: 0.25rem;
   }
 
   .carousel-btn.next {
-    right: 0;
+    right: 0.25rem;
   }
 }
 

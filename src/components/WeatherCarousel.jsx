@@ -38,7 +38,7 @@ function WeatherCarousel({
   const goNext = () => activeIndex < total - 1 && setActiveIndex(activeIndex + 1);
 
   return (
-    <div className="carousel-wrapper relative flex justify-center items-center mt-6">
+    <div className="carousel-wrapper relative flex justify-center items-center mt-6 w-full">
       <button
         onClick={goPrev}
         disabled={activeIndex === 0}
