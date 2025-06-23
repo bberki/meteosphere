@@ -127,11 +127,11 @@ function App() {
       <div className="top-right">
         {isLoggedIn ? (
           <>
-            <span>Merhaba, {user.username}</span>
-            <button onClick={handleLogout}>Çıkış Yap</button>
+            <span>Welcome, {user.username}</span>
+            <button onClick={handleLogout}>Log Out</button>
           </>
         ) : (
-          <button onClick={() => setShowAuthPage(true)}>Giriş Yap</button>
+          <button onClick={() => setShowAuthPage(true)}>Log In</button>
         )}
       </div>
 

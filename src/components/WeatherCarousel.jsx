@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaTrash, FaRegCommentDots, FaStar } from 'react-icons/fa';
 
 function WeatherCarousel({
@@ -10,15 +10,26 @@ function WeatherCarousel({
   onToggleFavoriteCard,
   user
 }) {
+  const [visibleCount, setVisibleCount] = useState(window.innerWidth < 768 ? 1 : 3);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setVisibleCount(window.innerWidth < 768 ? 1 : 3);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const total = weatherList.length;
-  const V = 3;
-  const offset = Math.floor(V / 2);
+  const offset = Math.floor(visibleCount / 2);
 
   const start = Math.min(
     Math.max(activeIndex - offset, 0),
-    Math.max(total - V, 0)
+    Math.max(total - visibleCount, 0)
   );
-  const visible = weatherList.slice(start, start + V);
+
+  const visible = weatherList.slice(start, start + visibleCount);
 
   const goPrev = () => activeIndex > 0 && setActiveIndex(activeIndex - 1);
   const goNext = () => activeIndex < total - 1 && setActiveIndex(activeIndex + 1);
@@ -39,26 +50,24 @@ function WeatherCarousel({
               <img src={w.current.condition.icon} alt="" />
               <p><strong>{w.current.temp_c}°C</strong></p>
               <p className="description">{w.current.condition.text}</p>
-              <p>💧 Nem: {w.current.humidity}%</p>
-              <p>🍃 Rüzgar: {w.current.wind_kph} km/h</p>
+              <p>💧 Humidity: {w.current.humidity}%</p>
+              <p>🍃 Wind: {w.current.wind_kph} km/h</p>
 
               <div className="card-buttons">
                 <button onClick={() => onCommentCard(w.location.name)}>
-                  <FaRegCommentDots /> Yorum Yap
+                  <FaRegCommentDots /> Comment
                 </button>
                 <button onClick={() => onDeleteCard(idx)}>
-                  <FaTrash /> Sil
+                  <FaTrash /> Delete
                 </button>
-              </div>
-
-              {user && (
-                <button onClick={() => {
-                  console.log("favori butonuna basildi");
-                  onToggleFavoriteCard(w.location.name);
-                }}>
-                  <FaStar /> {isFav ? '❌ Favorilerden Çıkar' : '⭐ Favorilere Ekle'}
+                {user && (
+                <button onClick={() => onToggleFavoriteCard(w.location.name)}>
+                  <FaStar /> {isFav ? 'Pinned' : 'Pin'}
                 </button>
               )}
+              </div>
+
+              
             </div>
           );
         })}

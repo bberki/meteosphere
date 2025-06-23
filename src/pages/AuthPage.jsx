@@ -25,10 +25,9 @@ const AuthPage = ({ onAuthSuccess }) => {
         const result = await loginUser({ identifier: email, password });
 
         localStorage.setItem('token', result.token);
-        console.log("🔥 Backend login sonucu:", result);
-        console.log("🧩 Gelen user objesi:", result.user);
-        console.log("🆔 Gelen user._id:", result.user._id);
-        // Mongo dönen _id'yi id olarak, ve favorileri garanti ederek üst katmana yolla
+        console.log(" Backend login sonucu:", result);
+        console.log(" Gelen user objesi:", result.user);
+        console.log(" Gelen user._id:", result.user._id);
         const userWithId = {
           ...result.user,
           id: result.user._id,
@@ -58,7 +57,7 @@ const AuthPage = ({ onAuthSuccess }) => {
     <div className="auth-container">
       <div className="auth-box">
         <h1 className="logo-title">Meteosphere</h1>
-        <h2>{isLogin ? 'Giriş Yap' : 'Kayıt Ol'}</h2>
+        <h2>{isLogin ? 'Log In' : 'Register'}</h2>
         <form onSubmit={handleSubmit}>
           <input
             type="email"
@@ -84,12 +83,12 @@ const AuthPage = ({ onAuthSuccess }) => {
             required
           />
           {errorMessage && <p className="error-text">{errorMessage}</p>}
-          <button type="submit">{isLogin ? 'Giriş Yap' : 'Kayıt Ol'}</button>
+          <button type="submit">{isLogin ? 'Log In' : 'Register'}</button>
         </form>
         <p className="toggle-text">
           {isLogin ? 'Hesabınız yok mu? ' : 'Zaten hesabınız var mı? '}
           <span className="toggle-link" onClick={toggleMode}>
-            {isLogin ? 'Kayıt Ol' : 'Giriş Yap'}
+            {isLogin ? 'Log In' : 'Register'}
           </span>
         </p>
       </div>

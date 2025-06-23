@@ -46,7 +46,7 @@ function SearchBar({ onWeatherFetched }) {
       <div className="autocomplete-wrapper">
         <input
           type="text"
-          placeholder="Şehir adı girin"
+          placeholder="Enter a city"
           value={city}
           onChange={(e) => {
             setCity(e.target.value);
@@ -68,7 +68,7 @@ function SearchBar({ onWeatherFetched }) {
         )}
       </div>
       <button onClick={handleSearch} className="search-button">
-        Ara
+        Search
       </button>
     </div>
   );
