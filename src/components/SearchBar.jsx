@@ -43,7 +43,7 @@ function SearchBar({ onWeatherFetched }) {
 
   return (
     <div className="search-bar flex flex-col sm:flex-row gap-3 justify-center mb-6">
-      <div className="autocomplete-wrapper relative w-full sm:w-auto">
+      <div className="autocomplete-wrapper relative w-10/12 sm:w-auto">
         <input
           type="text"
           placeholder="Şehir adı girin"
@@ -52,7 +52,7 @@ function SearchBar({ onWeatherFetched }) {
             setCity(e.target.value);
             setShowSuggestions(true);
           }}
-          className="search-input w-full sm:w-72 p-2 rounded-md text-gray-800"
+          className="search-input w-full max-w-xs sm:w-72 p-2 rounded-md text-gray-800"
         />
         {showSuggestions && suggestions.length > 0 && (
           <ul className="suggestion-list">

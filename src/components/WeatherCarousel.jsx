@@ -56,10 +56,10 @@ function WeatherCarousel({
           return (
             <div
               key={idx}
-              className={`weather-card ${isActive ? 'active-card' : ''} w-[90vw] md:w-[45vw] lg:w-[240px]`}
+              className={`weather-card ${isActive ? 'active-card' : ''} w-[80vw] md:w-[45vw] lg:w-[240px]`}
             >
               <h3>{w.location.name}</h3>
-              <img src={w.current.condition.icon} alt="" />
+              <img src={w.current.condition.icon} alt="" className="mx-auto" />
               <p><strong>{w.current.temp_c}°C</strong></p>
               <p className="description">{w.current.condition.text}</p>
               <p className="info-row">
@@ -73,10 +73,10 @@ function WeatherCarousel({
 
               <div className="card-buttons">
                 <button onClick={() => onCommentCard(w.location.name)}>
-                  <FaRegCommentDots /> Yorum Yap
+                  <span role="img" aria-label="Yorum">💬</span> Yorum Yap
                 </button>
                 <button onClick={() => onDeleteCard(idx)}>
-                  <FaTrash /> Sil
+                  <span role="img" aria-label="Sil">🗑️</span> Sil
                 </button>
               </div>
 
