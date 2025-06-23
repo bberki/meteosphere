@@ -124,10 +124,10 @@ function App() {
 
   return (
     <>
-      <div className="top-right flex items-center gap-2">
+      <div className="top-right flex items-center gap-2 text-white font-semibold">
         {isLoggedIn ? (
           <>
-            <span>Merhaba, {user.username}</span>
+            <span className="user-greeting">Merhaba, {user.username}</span>
             <button onClick={handleLogout} className="logout-button">Çıkış Yap</button>
           </>
         ) : (
@@ -139,7 +139,7 @@ function App() {
         <AuthPage onAuthSuccess={handleAuthSuccess} />
       ) : (
         <div className="container mx-auto p-5 text-center">
-          <h1>🌤️ Meteosphere</h1>
+          <h1 className="text-4xl font-bold text-white mb-4 drop-shadow">🌤️ Meteosphere</h1>
           <SearchBar onWeatherFetched={handleWeatherFetched} />
           {weatherList.length > 0 && (
             <WeatherCarousel

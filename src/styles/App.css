@@ -70,6 +70,10 @@ body {
   background-color: #f0f0f0;
 }
 
+.user-greeting {
+  margin-right: 0.25rem;
+}
+
 /* === SEARCH BAR === */
 .search-bar {
   display: flex;
@@ -194,25 +198,47 @@ body {
 }
 
 /* === KAYDIRILABİLİR BÖLÜM === */
-.carousel-wrapper,
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
 .carousel-cards {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1.5rem;
   gap: 1rem;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .carousel-btn {
-  padding: 0.5rem 1rem;
-  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 1.25rem;
   border: none;
   background-color: rgba(255, 255, 255, 0.25);
   color: white;
-  border-radius: 0.5rem;
+  border-radius: 9999px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.carousel-btn.prev {
+  left: -1.5rem;
+}
+
+.carousel-btn.next {
+  right: -1.5rem;
 }
 
 .carousel-btn:hover:enabled {

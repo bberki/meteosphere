@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaTrash, FaRegCommentDots, FaStar } from 'react-icons/fa';
+import { FaTrash, FaRegCommentDots, FaStar, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 function WeatherCarousel({
   weatherList,
@@ -38,8 +38,14 @@ function WeatherCarousel({
   const goNext = () => activeIndex < total - 1 && setActiveIndex(activeIndex + 1);
 
   return (
-    <div className="carousel-wrapper flex flex-col lg:flex-row items-center mt-6 gap-4">
-      <button onClick={goPrev} disabled={activeIndex === 0} className="carousel-btn">←</button>
+    <div className="carousel-wrapper relative flex justify-center items-center mt-6">
+      <button
+        onClick={goPrev}
+        disabled={activeIndex === 0}
+        className="carousel-btn prev absolute left-0 top-1/2 -translate-y-1/2"
+      >
+        <FaChevronLeft />
+      </button>
       <div className="carousel-cards flex flex-wrap justify-center gap-4">
         {visible.map((w, i) => {
           const idx = start + i;
@@ -80,7 +86,13 @@ function WeatherCarousel({
           );
         })}
       </div>
-      <button onClick={goNext} disabled={activeIndex === total - 1} className="carousel-btn">→</button>
+      <button
+        onClick={goNext}
+        disabled={activeIndex === total - 1}
+        className="carousel-btn next absolute right-0 top-1/2 -translate-y-1/2"
+      >
+        <FaChevronRight />
+      </button>
     </div>
   );
 }
