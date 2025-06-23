@@ -124,14 +124,14 @@ function App() {
 
   return (
     <>
-      <div className="top-right">
+      <div className="top-right flex items-center gap-2">
         {isLoggedIn ? (
           <>
             <span>Merhaba, {user.username}</span>
-            <button onClick={handleLogout}>Çıkış Yap</button>
+            <button onClick={handleLogout} className="logout-button">Çıkış Yap</button>
           </>
         ) : (
-          <button onClick={() => setShowAuthPage(true)}>Giriş Yap</button>
+          <button onClick={() => setShowAuthPage(true)} className="login-button">Giriş Yap</button>
         )}
       </div>
 
