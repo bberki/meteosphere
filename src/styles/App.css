@@ -1,0 +1,414 @@
+/* === KÖK === */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #4facfe, #00f2fe);
+  min-height: 100vh;
+  color: #fff;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.container h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+/* === GİRİŞ YAP BUTONU === */
+.top-right {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  z-index: 1000;
+}
+
+.login-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: white;
+  color: #333;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #f0f0f0;
+}
+
+/* === SEARCH BAR === */
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: nowrap;
+}
+
+.search-bar input {
+  padding: 0.625rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  min-width: 12rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-bar input:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
+.search-bar button {
+  padding: 0.625rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* === HAVA DURUMU KARTLARI === */
+.weather-card {
+  flex: 0 0 auto;
+  background-color: #ffffff;
+  color: #333;
+  border-radius: 12px;
+  padding: 16px;
+  width: 240px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.weather-card.active-card {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.weather-card img {
+  width: 64px;
+  height: 64px;
+  margin: 8px 0;
+}
+
+.weather-card h3 {
+  color: #111;
+  font-weight: 700;
+}
+
+.weather-card .description {
+  font-size: 14px;
+  color: #222;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+  margin: 0 auto;
+}
+
+.weather-card p,
+.weather-card span {
+  color: #222;
+  font-weight: 600;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.weather-card button {
+  margin-top: 10px;
+  margin-right: 6px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.weather-card button:hover {
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+.favorite-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* === KAYDIRILABİLİR BÖLÜM === */
+.carousel-wrapper,
+.carousel-cards {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+.carousel-btn {
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover:enabled {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.carousel-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* === ARKA PLANLAR === */
+.bg-default {
+  background: linear-gradient(to bottom, #74ebd5, #ACB6E5);
+}
+
+.bg-sunny {
+  background: linear-gradient(to bottom, #fddb92, #d1fdff);
+}
+
+.bg-cloudy {
+  background: linear-gradient(to bottom, #b3cdd1, #e0eafc);
+}
+
+.bg-rainy {
+  background: linear-gradient(to bottom, #83a4d4, #b6fbff);
+}
+
+.bg-thunder {
+  background: linear-gradient(to bottom, #2c3e50, #4ca1af);
+}
+
+.bg-snowy {
+  background: linear-gradient(to bottom, #e0eafc, #cfdef3);
+}
+
+.bg-foggy {
+  background: linear-gradient(to bottom, #757f9a, #d7dde8);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .search-bar input,
+  .search-bar button {
+    width: 80%;
+  }
+
+  .weather-card {
+    width: 90vw;
+  }
+
+  .top-right {
+    right: 15px;
+    top: 15px;
+  }
+
+  .carousel-cards {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .favorite-btn {
+    top: 6px;
+    right: 6px;
+    font-size: 18px;
+  }
+}
+
+/* === ÖNERİ LİSTESİ (AUTOCOMPLETE) === */
+.autocomplete-wrapper {
+  position: relative;
+  display: inline-block;
+  max-width: 300px;
+  width: 100%;
+  z-index: 1000;
+}
+
+.suggestion-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 220px;
+  overflow-y: auto;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+  z-index: 1001;
+}
+
+.suggestion-list:empty {
+  display: none !important;
+}
+
+.suggestion-list li {
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  color: #333;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.suggestion-list li:hover {
+  background-color: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+  .autocomplete-wrapper {
+    width: 80%;
+  }
+}
+
+/* === MODAL === */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background: white;
+  border-radius: 12px;
+  padding: 30px 20px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+}
+
+.modal-comments {
+  max-height: 200px;
+  overflow-y: auto;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.modal-comment {
+  padding: 8px 10px;
+  border-bottom: 1px solid #eee;
+  color: black;
+  word-wrap: break-word;
+}
+
+.modal-empty {
+  color: #999;
+  text-align: center;
+}
+
+.modal-login-info {
+  color: #777;
+  font-style: italic;
+}
+
+.modal-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.modal-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 70%;
+}
+
+.modal h2 {
+  color: black;
+}
+
+.modal-submit {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-submit:hover {
+  background-color: #0056b3;
+}
