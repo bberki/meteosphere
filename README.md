@@ -1,12 +1,37 @@
-# React + Vite
+# Meteosphere
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Meteosphere, React ve Vite kullanılarak gelistirilmis bir hava durumu uygulamasidir. Arka planda Express ve MongoDB kullanan bir API bulunur. Kullanıcılar kayıt olabilir, giriş yapabilir, favori şehirlerini yönetebilir ve şehirlere yorum bırakabilir.
 
-Currently, two official plugins are available:
+## Özellikler
+- Şehirlerin güncel hava durumu bilgileri
+- Kullanıcı kayıt ve giriş işlemleri
+- Şehirlere yorum ekleme
+- Favori şehir listesi oluşturma
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Kurulum
+1. Depoyu klonladıktan sonra kök dizinde frontend bağımlılıklarını kurun:
+   ```bash
+   npm install
+   ```
+2. Backend klasörüne geçip bağımlılıkları kurun:
+   ```bash
+   cd backend
+   npm install
+   ```
+3. Proje kökünde `.env` dosyası oluşturup aşağıdaki değişkeni tanımlayın:
+   ```
+   VITE_WEATHER_API_KEY=<API_ANAHTARINIZ>
+   ```
 
-## Expanding the ESLint configuration
+## Çalıştırma
+Frontend'i başlatmak için kök dizinde:
+```bash
+npm run dev
+```
+Backend'i başlatmak için `backend` klasöründe:
+```bash
+node server.js
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Katkı
+Hata bildirmek veya geliştirme önerileri için pull request gönderebilir ya da issue açabilirsiniz.
