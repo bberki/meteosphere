@@ -1,5 +1,3 @@
-// src/components/CommentModal.jsx
-
 import { useState, useEffect } from 'react';
 import { fetchCommentsByCity, postNewComment } from '../services/commentAPI';
 

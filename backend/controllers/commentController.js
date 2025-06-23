@@ -1,4 +1,3 @@
-// controllers/commentController.js
 import Comment from '../models/Comment.js';
 
 // Şehre göre yorumları getir

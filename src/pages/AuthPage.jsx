@@ -34,7 +34,7 @@ const AuthPage = ({ onAuthSuccess }) => {
           favoriteLocations: result.user.favoriteLocations || []
         };
 
-        console.log("✅ App'e gönderilecek user:", userWithId);
+        console.log("App'e gönderilecek user:", userWithId);
 
         if (typeof onAuthSuccess === 'function') {
 
