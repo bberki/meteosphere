@@ -238,6 +238,7 @@ body {
   border-radius: 9999px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  z-index: 5;
 }
 
 .carousel-btn.prev {
@@ -331,6 +332,14 @@ body {
   .top-right {
     right: 10px;
     top: 10px;
+  }
+
+  .carousel-btn.prev {
+    left: 0;
+  }
+
+  .carousel-btn.next {
+    right: 0;
   }
 }
 
