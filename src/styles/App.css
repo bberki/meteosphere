@@ -270,6 +270,35 @@ body {
   }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .weather-card {
+    width: 45vw;
+  }
+  .carousel-cards {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .search-bar input,
+  .search-bar button {
+    width: 100%;
+  }
+
+  .weather-card {
+    width: 90vw;
+  }
+
+  .top-right {
+    right: 10px;
+    top: 10px;
+  }
+}
+
 /* === ÖNERİ LİSTESİ (AUTOCOMPLETE) === */
 .autocomplete-wrapper {
   position: relative;

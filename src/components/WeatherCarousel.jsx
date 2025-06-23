@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaTrash, FaRegCommentDots, FaStar } from 'react-icons/fa';
 
 function WeatherCarousel({
@@ -10,8 +10,22 @@ function WeatherCarousel({
   onToggleFavoriteCard,
   user
 }) {
+  const getVisibleCount = () => {
+    if (window.innerWidth <= 480) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
+  };
+
+  const [visibleCount, setVisibleCount] = useState(getVisibleCount());
+
+  useEffect(() => {
+    const handleResize = () => setVisibleCount(getVisibleCount());
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const total = weatherList.length;
-  const V = 3;
+  const V = visibleCount;
   const offset = Math.floor(V / 2);
 
   const start = Math.min(

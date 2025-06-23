@@ -97,3 +97,14 @@ body, html {
   text-decoration: underline;
   color: #0056b3;
 }
+
+@media (max-width: 480px) {
+  .auth-box {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .logo-title {
+    font-size: 2rem;
+  }
+}
