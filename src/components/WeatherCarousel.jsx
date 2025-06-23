@@ -62,8 +62,14 @@ function WeatherCarousel({
               <img src={w.current.condition.icon} alt="" />
               <p><strong>{w.current.temp_c}°C</strong></p>
               <p className="description">{w.current.condition.text}</p>
-              <p>💧 Nem: {w.current.humidity}%</p>
-              <p>🍃 Rüzgar: {w.current.wind_kph} km/h</p>
+              <p className="info-row">
+                <span role="img" aria-label="Nem">💧</span>
+                <span>Nem: {w.current.humidity}%</span>
+              </p>
+              <p className="info-row">
+                <span role="img" aria-label="Rüzgar">🍃</span>
+                <span>Rüzgar: {w.current.wind_kph} km/h</span>
+              </p>
 
               <div className="card-buttons">
                 <button onClick={() => onCommentCard(w.location.name)}>

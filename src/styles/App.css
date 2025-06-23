@@ -170,6 +170,13 @@ body {
   overflow-wrap: break-word;
 }
 
+.info-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
 .weather-card button {
   margin-top: 10px;
   margin-right: 6px;
