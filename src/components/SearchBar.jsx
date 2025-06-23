@@ -42,8 +42,8 @@ function SearchBar({ onWeatherFetched }) {
   };
 
   return (
-    <div className="search-bar">
-      <div className="autocomplete-wrapper">
+    <div className="search-bar flex flex-col sm:flex-row gap-3 justify-center mb-6">
+      <div className="autocomplete-wrapper relative w-full sm:w-auto">
         <input
           type="text"
           placeholder="Şehir adı girin"
@@ -52,7 +52,7 @@ function SearchBar({ onWeatherFetched }) {
             setCity(e.target.value);
             setShowSuggestions(true);
           }}
-          className="search-input"
+          className="search-input w-full sm:w-72 p-2 rounded-md text-gray-800"
         />
         {showSuggestions && suggestions.length > 0 && (
           <ul className="suggestion-list">
@@ -67,7 +67,10 @@ function SearchBar({ onWeatherFetched }) {
           </ul>
         )}
       </div>
-      <button onClick={handleSearch} className="search-button">
+      <button
+        onClick={handleSearch}
+        className="search-button bg-white/30 hover:bg-white/50 text-white rounded-md px-4 py-2 w-full sm:w-auto"
+      >
         Ara
       </button>
     </div>

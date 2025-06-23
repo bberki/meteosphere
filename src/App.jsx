@@ -138,7 +138,7 @@ function App() {
       {showAuthPage ? (
         <AuthPage onAuthSuccess={handleAuthSuccess} />
       ) : (
-        <div className="container">
+        <div className="container mx-auto p-5 text-center">
           <h1>🌤️ Meteosphere</h1>
           <SearchBar onWeatherFetched={handleWeatherFetched} />
           {weatherList.length > 0 && (

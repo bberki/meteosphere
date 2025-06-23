@@ -55,8 +55,8 @@ const AuthPage = ({ onAuthSuccess }) => {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-box">
+    <div className="auth-container flex justify-center items-center min-h-screen">
+      <div className="auth-box bg-white/20 backdrop-blur-lg rounded-xl p-6 w-11/12 max-w-sm">
         <h1 className="logo-title">Meteosphere</h1>
         <h2>{isLogin ? 'Giriş Yap' : 'Kayıt Ol'}</h2>
         <form onSubmit={handleSubmit}>

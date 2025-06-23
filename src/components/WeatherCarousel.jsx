@@ -38,9 +38,9 @@ function WeatherCarousel({
   const goNext = () => activeIndex < total - 1 && setActiveIndex(activeIndex + 1);
 
   return (
-    <div className="carousel-wrapper">
+    <div className="carousel-wrapper flex flex-col lg:flex-row items-center mt-6 gap-4">
       <button onClick={goPrev} disabled={activeIndex === 0} className="carousel-btn">←</button>
-      <div className="carousel-cards">
+      <div className="carousel-cards flex flex-wrap justify-center gap-4">
         {visible.map((w, i) => {
           const idx = start + i;
           const isActive = idx === activeIndex;
@@ -48,7 +48,10 @@ function WeatherCarousel({
           const isFav = favs.includes(w.location.name.toLowerCase());
 
           return (
-            <div key={idx} className={`weather-card ${isActive ? 'active-card' : ''}`}>
+            <div
+              key={idx}
+              className={`weather-card ${isActive ? 'active-card' : ''} w-[90vw] md:w-[45vw] lg:w-[240px]`}
+            >
               <h3>{w.location.name}</h3>
               <img src={w.current.condition.icon} alt="" />
               <p><strong>{w.current.temp_c}°C</strong></p>

@@ -28,7 +28,6 @@ body, html {
   background-color: rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   padding: 30px 40px;
-  width: 320px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(12px);
   text-align: center;
@@ -100,7 +99,6 @@ body, html {
 
 @media (max-width: 480px) {
   .auth-box {
-    width: 90%;
     padding: 20px;
   }
 
